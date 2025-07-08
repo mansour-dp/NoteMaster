@@ -41,7 +41,7 @@ npm run dev
 - **IA** : Groq API (gratuite)
 - **Déploiement** : Vercel
 
-## 🔧 Configuration IA
+## Configuration IA
 
 Pour activer l'IA, ajoutez votre clé Groq dans `server/.env` :
 
@@ -68,16 +68,16 @@ cd NoteMaster
 docker-compose up -d
 ```
 
-➡️ **Application** : http://localhost:3000
+**Application** : http://localhost:3000
 
-## 📖 Utilisation
+## Utilisation
 
 1. **Créer des notes** - Utilisez l'éditeur pour vos contenus
 2. **Générer des questions** - L'IA analyse vos notes automatiquement
 3. **Faire des quiz** - Testez vos connaissances
 4. **Suivre vos progrès** - Consultez vos statistiques
 
-## 🤝 Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou soumettre une pull request.
 
@@ -87,7 +87,7 @@ Ce projet est sous licence MIT.
 
 ---
 
-⭐ **N'hésitez pas à mettre une étoile si ce projet vous plaît !**
+**N'hésitez pas à mettre une étoile si ce projet vous plaît !**
 
 ## 🔗 Liens utiles
 
