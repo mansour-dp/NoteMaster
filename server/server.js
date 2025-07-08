@@ -939,32 +939,37 @@ L'alimentation équilibrée, associée à l'activité physique, prévient de nom
       console.log(`✅ Note créée: ${note.title}`);
     }
 
-    console.log(`🎉 ${demoNotes.length} notes de démonstration créées avec succès!`);
+    console.log(
+      `🎉 ${demoNotes.length} notes de démonstration créées avec succès!`
+    );
   } catch (error) {
-    console.error("Erreur lors de la création des notes de démonstration:", error);
+    console.error(
+      "Erreur lors de la création des notes de démonstration:",
+      error
+    );
   }
 }
 
 // Routes API avec préfixe /api pour la production
-app.use('/api/notes', async (req, res, next) => {
-  req.url = req.url.replace('/api', '');
+app.use("/api/notes", async (req, res, next) => {
+  req.url = req.url.replace("/api", "");
   next();
 });
 
 // Toutes les routes API avec préfixe /api
-app.use('/api', (req, res, next) => {
-  req.url = req.url.replace(/^\/api/, '');
+app.use("/api", (req, res, next) => {
+  req.url = req.url.replace(/^\/api/, "");
   next();
 });
 
 // Servir les fichiers statiques React en production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '..', 'build')));
-  
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "..", "build")));
+
   // Toutes les routes non-API retournent le fichier React
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api')) {
-      res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+  app.get("*", (req, res) => {
+    if (!req.path.startsWith("/api")) {
+      res.sendFile(path.join(__dirname, "..", "build", "index.html"));
     }
   });
 }

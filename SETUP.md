@@ -21,6 +21,7 @@ cp server/.env.example server/.env
 ### **Option 1 : Avec IA (Recommandé)**
 
 1. **Créer un compte Groq gratuit :**
+
    - Aller sur [console.groq.com](https://console.groq.com/)
    - S'inscrire (gratuit)
    - Générer une clé API
@@ -28,12 +29,14 @@ cp server/.env.example server/.env
 2. **Configurer les fichiers :**
 
    **Dans `server/.env` :**
+
    ```env
    AI_PROVIDER=groq
    GROQ_API_KEY=gsk_votre_vraie_cle_ici
    ```
 
    **Dans `.env` (racine) :**
+
    ```env
    GROQ_API_KEY=gsk_votre_vraie_cle_ici
    ```
@@ -41,6 +44,7 @@ cp server/.env.example server/.env
 ### **Option 2 : Sans IA (Mode dégradé)**
 
 Dans `server/.env` :
+
 ```env
 AI_PROVIDER=fallback
 # GROQ_API_KEY=commenté
