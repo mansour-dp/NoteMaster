@@ -945,13 +945,27 @@ L'alimentation équilibrée, associée à l'activité physique, prévient de nom
   }
 }
 
+// Routes API avec préfixe /api pour la production
+app.use('/api/notes', async (req, res, next) => {
+  req.url = req.url.replace('/api', '');
+  next();
+});
+
+// Toutes les routes API avec préfixe /api
+app.use('/api', (req, res, next) => {
+  req.url = req.url.replace(/^\/api/, '');
+  next();
+});
+
 // Servir les fichiers statiques React en production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '..', 'build')));
   
-  // Toutes les autres routes retournent le fichier React
+  // Toutes les routes non-API retournent le fichier React
   app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
+    }
   });
 }
 

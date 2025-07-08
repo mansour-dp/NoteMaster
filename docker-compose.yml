@@ -4,14 +4,17 @@ services:
   notemaster:
     build: .
     ports:
-      - "3000:5000"
+      - "3000:3000"  # Frontend
+      - "5000:5000"  # API
     environment:
       - NODE_ENV=production
       - PORT=5000
       - AI_PROVIDER=groq
-      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_API_KEY=${GROQ_API_KEY:-your_groq_api_key_here}
+      - REACT_APP_API_URL=http://localhost:5000
     volumes:
       - notemaster_data:/app/server/data
+      - ./.env:/app/.env
     restart: unless-stopped
     container_name: notemaster-app
 
